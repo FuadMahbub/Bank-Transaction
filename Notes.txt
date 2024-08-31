@@ -1,0 +1,13 @@
+extensions to download
+-Entity framework core
+-Entity Framework core.Tools
+-Entity Framework core.SqlServer
+
+For Migration
+-1st Build the solution
+-2nd Click the WebApp
+-3rd go to tools->NuGet Packages->Package Manager Console
+-4th type Add-Migration "Initial Create"
+-5th type Update-Database 
+
+*Dependency Injection( Know more about this)
