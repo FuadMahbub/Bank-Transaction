@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BankTransaction
+namespace BankTransaction.Models
 {
     public class Transaction
     {
@@ -13,7 +13,7 @@ namespace BankTransaction
         [Column(TypeName = "nvarchar(12)")]
         [DisplayName("Account Number")]
         [Required(ErrorMessage = "This field is required.")]
-        [MaxLength(12,ErrorMessage ="Maximum 12 characters.")]
+        [MaxLength(12, ErrorMessage = "Maximum 12 characters.")]
         public string AccountNumber { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]

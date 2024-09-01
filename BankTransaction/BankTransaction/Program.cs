@@ -1,4 +1,4 @@
-using BankTransaction;
+using BankTransaction.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +11,8 @@ builder.Services.AddDbContext<TransactionDbContext>(options =>
 
     options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection"))
 );
+
+
 
 var app = builder.Build();
 
@@ -27,6 +29,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(//Need To understand this method
     name: "default",
-    pattern: "{controller=Transaction}/{action=Index}/{id?}"); 
+    pattern: "{controller=Members}/{action=Add}/{id?}"); 
 
 app.Run();

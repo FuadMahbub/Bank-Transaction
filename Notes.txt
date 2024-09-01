@@ -10,4 +10,11 @@ For Migration
 -4th type Add-Migration "Initial Create"
 -5th type Update-Database 
 
+-Git commands
+	-git init
+	-git add -A
+	-git commit -m "any comment"
+	-git remote add origin (link of GitHub repository)
+	-git push origin master
+
 *Dependency Injection( Know more about this)

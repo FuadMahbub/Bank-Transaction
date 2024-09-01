@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BankTransaction;
+using BankTransaction.Models;
 
 namespace BankTransaction.Controllers
 {
@@ -19,9 +19,24 @@ namespace BankTransaction.Controllers
         }
 
         // GET: Transaction
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pg = 1)
         {
-            return View(await _context.Transactions.ToListAsync());
+            List<Transaction> transactions = _context.Transactions.ToList();
+
+            const int pageSize = 2;
+            if (pg < 1)
+                pg = 1;
+
+            int recsCount = transactions.Count();
+
+            var pager = new Pager(recsCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+            var data = transactions.Skip(recSkip).Take(pager.PageSize).ToList();
+
+            this.ViewBag.Pager = pager;
+
+
+            return View(data);
         }
 
         
